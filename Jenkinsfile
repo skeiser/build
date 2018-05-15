@@ -41,7 +41,10 @@ pipeline {
                 }
 
                 stage ('Build 2') { agent any
-                    echo "No, it's me!!"
+                    steps {
+                        echo "No, it's me!!"
+                    }
+                    
                 }
             }
         }
