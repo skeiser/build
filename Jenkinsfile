@@ -3,6 +3,7 @@ pipeline {
     environment {
         NODE_VER = '8.1.0'
     }
+
     stages {
         stage ('Beginning') { agent any
         environment {
@@ -27,6 +28,21 @@ pipeline {
         stage('Deploy to stage?') { agent none
             steps {
                 input 'Deploy to stage?' 
+            }
+        }
+
+        stage ('Parallel') { agent any
+            failFast true
+            parallel {
+                stage('Build 1') { agent any
+                    steps {
+                        echo "It's ME!!"
+                    }
+                }
+
+                stage ('Build 2') { agent any
+                    echo "No, it's me!!"
+                }
             }
         }
     }
