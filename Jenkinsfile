@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-        stage ('Parallel') { agent any
+        stage ('Parallel') {
             failFast true
             parallel {
                 stage('Build 1') { agent any
