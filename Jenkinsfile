@@ -17,6 +17,10 @@ pipeline {
 
         stage ('Who am I>') { agent any
             steps {
+                environment {
+                    DEPLOY_VERSION = 'prod'
+                }
+                echo "${env.DEPLOY_VERSION}"
                 sh 'host -t TXT pgp.michaelholley.us | awk -F \'"\' \'{print $2} \''
             }
         }
