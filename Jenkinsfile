@@ -29,7 +29,7 @@ pipeline {
             when {
                 anyOf {
                     branch 'stage'
-                    environment name: 'NODE_VER', value '8.1.0'
+                    environment name: 'NODE_VER', value: '8.1.0'
                 }
             }
             steps {
